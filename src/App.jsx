@@ -1,11 +1,14 @@
 import { useState } from "react";
 import lovesvg from "./assets/All You Need Is Love SVG Cut File.svg";
 import lovesvg2 from "./assets/Love In The Air SVG Cut File.svg";
+import us from "./assets/Us.jpg";
 
 export default function Page() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
   const yesButtonSize = noCount * 20 + 16;
+
+  const [clickDone, setClickDone] = useState(false);
 
   const handleNoClick = () => {
     setNoCount(noCount + 1);
@@ -43,24 +46,19 @@ export default function Page() {
         <>
           <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" />
           <div className="text-4xl md:text-6xl font-bold my-4">
-            Ok Yayyyyy!!!
+            Yess!!! Now lets make it your best valentine yet 💝
           </div>
         </>
       ) : (
         <>
-          <img
-            src={lovesvg}
-            className="fixed animate-pulse top-10 md:left-24 left-6 md:w-40 w-28"
-          />
-          <img
-            src={lovesvg2}
-            className="fixed bottom-16 -z-10 animate-pulse md:right-24 right-10 md:w-40 w-32"
-          />
+          {clickDone ? (
+            <>
           <img
             className="h-[230px] rounded-lg shadow-lg"
-            src="https://gifdb.com/images/high/cute-Love-bear-roses-ou7zho5oosxnpo6k.gif"
+            src = {us}
           />
           <h1 className="text-4xl md:text-6xl my-4 text-center">
+            But let me ask first <br />
             Will you be my Valentine?
           </h1>
           <div className="flex flex-wrap justify-center gap-2 items-center">
@@ -78,6 +76,34 @@ export default function Page() {
               {noCount === 0 ? "No" : getNoButtonText()}
             </button>
           </div>
+            </>
+          ) : (
+            <>
+             <img
+            className="h-[230px] rounded-lg shadow-lg"
+            src="https://gifdb.com/images/high/cute-Love-bear-roses-ou7zho5oosxnpo6k.gif"
+          />
+          <h1 className="text-4xl md:text-6xl my-4 text-center">
+            Hiiii there Neha 💌<br></br>
+            Are you ready for a week full of surprises?
+          </h1>
+          <div className="flex flex-wrap justify-center gap-2 items-center">
+            <button
+              className={`bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg mr-4`}
+              onClick={() => setClickDone(true)}
+            >
+              Yes
+            </button>
+            <button
+              onClick={() => setClickDone(true)}
+              className=" bg-rose-500 hover:bg-rose-600 rounded-lg text-white font-bold py-2 px-4"
+            >
+              Ofcourse
+            </button>
+          </div>
+            </>
+          )
+          }
         </>
       )}
       <Footer />
@@ -92,9 +118,8 @@ const Footer = () => {
       href="https://github.com/Xeven777/valentine"
       target="__blank"
     >
-      Made with{" "}
-      <span role="img" aria-label="heart">
-        ❤️
+        <span role="img" aria-label="heart">
+        Made for you eyes only 👀
       </span>
     </a>
   );
