@@ -1,6 +1,4 @@
 import { useState } from "react";
-import lovesvg from "./assets/All You Need Is Love SVG Cut File.svg";
-import lovesvg2 from "./assets/Love In The Air SVG Cut File.svg";
 import us from "./assets/Us.jpg";
 
 export default function Page() {
@@ -89,7 +87,7 @@ export default function Page() {
           </h1>
           <div className="flex flex-wrap justify-center gap-2 items-center">
             <button
-              className={`bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg mr-4`}
+              className={'bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg mr-4'}
               onClick={() => setClickDone(true)}
             >
               Yes
